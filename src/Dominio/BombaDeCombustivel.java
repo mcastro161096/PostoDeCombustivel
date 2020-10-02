@@ -67,4 +67,34 @@ public class BombaDeCombustivel
                     ", combustivelDiesel=" + combustivelDiesel +
                     '}';
         }
+
+        public CombustivelBomba getCombustivelGasolina()
+        {
+            return combustivelGasolina;
+        }
+
+        public void setCombustivelGasolina(CombustivelBomba combustivelGasolina)
+        {
+            this.combustivelGasolina = combustivelGasolina;
+        }
+
+        public CombustivelBomba getCombustivelAlcool()
+        {
+            return combustivelAlcool;
+        }
+
+        public void setCombustivelAlcool(CombustivelBomba combustivelAlcool)
+        {
+            this.combustivelAlcool = combustivelAlcool;
+        }
+
+        public CombustivelBomba getCombustivelDiesel()
+        {
+            return combustivelDiesel;
+        }
+
+        public void setCombustivelDiesel(CombustivelBomba combustivelDiesel)
+        {
+            this.combustivelDiesel = combustivelDiesel;
+        }
     }

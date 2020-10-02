@@ -23,6 +23,7 @@ public class Programa
 
             Posto posto = new Posto("Posto de mentirinha", bomba1, bomba2);
 
-            System.out.println(posto);
+
+
         }
     }

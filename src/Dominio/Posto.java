@@ -54,4 +54,60 @@ package Dominio;
                     ", bomba2=" + bomba2 +
                     '}';
         }
+
+        public BombaDeCombustivel EscolheBombaComMaisCombustivel(String combustivelEscolhido)
+        {
+            BombaDeCombustivel bombaComMaisCombustivel = null;
+            if(combustivelEscolhido == "Gasolina")
+            {
+                if(bomba1.getCombustivelGasolina().getQuantidade() == bomba2.getCombustivelGasolina().getQuantidade())
+                {
+                    bombaComMaisCombustivel = bomba1;
+                }
+
+                if(bomba1.getCombustivelGasolina().getQuantidade() > bomba2.getCombustivelGasolina().getQuantidade())
+                {
+                    bombaComMaisCombustivel = bomba1;
+                }
+                else
+                    bombaComMaisCombustivel = bomba2;
+
+
+            }
+
+            if(combustivelEscolhido == "Alcool")
+            {
+                if(bomba1.getCombustivelAlcool().getQuantidade() == bomba2.getCombustivelAlcool().getQuantidade())
+                {
+                    bombaComMaisCombustivel = bomba1;
+                }
+
+                if(bomba1.getCombustivelAlcool().getQuantidade() > bomba2.getCombustivelAlcool().getQuantidade())
+                {
+                    bombaComMaisCombustivel = bomba1;
+                }
+                else
+                    bombaComMaisCombustivel = bomba2;
+
+            }
+
+            if(combustivelEscolhido == "Diesel")
+            {
+                if(bomba1.getCombustivelDiesel().getQuantidade() == bomba2.getCombustivelDiesel().getQuantidade())
+                {
+                    bombaComMaisCombustivel = bomba1;
+                }
+
+                if(bomba1.getCombustivelDiesel().getQuantidade() > bomba2.getCombustivelDiesel().getQuantidade())
+                {
+                    bombaComMaisCombustivel = bomba1;
+                }
+                else
+                    bombaComMaisCombustivel = bomba2;
+
+            }
+
+            return bombaComMaisCombustivel;
+        }
+
     }
