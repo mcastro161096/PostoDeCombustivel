@@ -33,4 +33,13 @@ package Dominio;
         {
             this.valorPorLitro = valorPorLitro;
         }
+
+        @Override
+        public String toString()
+        {
+            return "Combustivel{" +
+                    "tipoDeCombustivel='" + tipoDeCombustivel + '\'' +
+                    ", valorPorLitro=" + valorPorLitro +
+                    '}';
+        }
     }

@@ -44,4 +44,14 @@ package Dominio;
         {
             this.bomba2 = bomba2;
         }
+
+        @Override
+        public String toString()
+        {
+            return "Posto{" +
+                    "nome='" + nome + '\'' +
+                    ", bomba1=" + bomba1 +
+                    ", bomba2=" + bomba2 +
+                    '}';
+        }
     }

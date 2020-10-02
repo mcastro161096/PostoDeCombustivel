@@ -58,4 +58,13 @@ public class BombaDeCombustivel
             return valorASerPago;
         }
 
+        @Override
+        public String toString()
+        {
+            return "BombaDeCombustivel{" +
+                    "combustivelGasolina=" + combustivelGasolina +
+                    ", combustivelAlcool=" + combustivelAlcool +
+                    ", combustivelDiesel=" + combustivelDiesel +
+                    '}';
+        }
     }

@@ -31,4 +31,13 @@ package Dominio;
         {
             this.quantidade = quantidade;
         }
+
+        @Override
+        public String toString()
+        {
+            return "CombustivelBomba{" +
+                    "combustivel=" + combustivel +
+                    ", quantidade=" + quantidade +
+                    '}';
+        }
     }
