@@ -55,57 +55,78 @@ package Dominio;
                     '}';
         }
 
-        public BombaDeCombustivel EscolheBombaComMaisCombustivel(String combustivelEscolhido)
+        public BombaDeCombustivel EscolheBombaComMaisCombustivel(int combustivelEscolhido)
         {
             BombaDeCombustivel bombaComMaisCombustivel = null;
-            if(combustivelEscolhido == "Gasolina")
+            if(combustivelEscolhido == 1)
             {
-                if(bomba1.getCombustivelGasolina().getQuantidade() == bomba2.getCombustivelGasolina().getQuantidade())
-                {
-                    bombaComMaisCombustivel = bomba1;
-                }
-
-                if(bomba1.getCombustivelGasolina().getQuantidade() > bomba2.getCombustivelGasolina().getQuantidade())
-                {
-                    bombaComMaisCombustivel = bomba1;
-                }
-                else
-                    bombaComMaisCombustivel = bomba2;
-
-
+                bombaComMaisCombustivel = VerificaComMaisGasolina();
             }
 
-            if(combustivelEscolhido == "Alcool")
+            if(combustivelEscolhido == 2)
             {
-                if(bomba1.getCombustivelAlcool().getQuantidade() == bomba2.getCombustivelAlcool().getQuantidade())
-                {
-                    bombaComMaisCombustivel = bomba1;
-                }
-
-                if(bomba1.getCombustivelAlcool().getQuantidade() > bomba2.getCombustivelAlcool().getQuantidade())
-                {
-                    bombaComMaisCombustivel = bomba1;
-                }
-                else
-                    bombaComMaisCombustivel = bomba2;
-
+                bombaComMaisCombustivel = VerificaComMaisAlcool();
             }
 
-            if(combustivelEscolhido == "Diesel")
+            if(combustivelEscolhido == 3)
             {
-                if(bomba1.getCombustivelDiesel().getQuantidade() == bomba2.getCombustivelDiesel().getQuantidade())
-                {
-                    bombaComMaisCombustivel = bomba1;
-                }
-
-                if(bomba1.getCombustivelDiesel().getQuantidade() > bomba2.getCombustivelDiesel().getQuantidade())
-                {
-                    bombaComMaisCombustivel = bomba1;
-                }
-                else
-                    bombaComMaisCombustivel = bomba2;
-
+                bombaComMaisCombustivel = VerificaComMaisDiesel();
             }
+
+            return bombaComMaisCombustivel;
+        }
+
+        public BombaDeCombustivel VerificaComMaisGasolina()
+        {
+            BombaDeCombustivel bombaComMaisCombustivel = null;
+
+            if(bomba1.getCombustivelGasolina().getQuantidade() == bomba2.getCombustivelGasolina().getQuantidade())
+            {
+                bombaComMaisCombustivel = bomba1;
+            }
+
+            if(bomba1.getCombustivelGasolina().getQuantidade() > bomba2.getCombustivelGasolina().getQuantidade())
+            {
+                bombaComMaisCombustivel = bomba1;
+            }
+            else
+                bombaComMaisCombustivel = bomba2;
+
+            return bombaComMaisCombustivel;
+        }
+
+        public BombaDeCombustivel VerificaComMaisAlcool()
+        {
+            BombaDeCombustivel bombaComMaisCombustivel = null;
+            if(bomba1.getCombustivelAlcool().getQuantidade() == bomba2.getCombustivelAlcool().getQuantidade())
+            {
+                bombaComMaisCombustivel = bomba1;
+            }
+
+            if(bomba1.getCombustivelAlcool().getQuantidade() > bomba2.getCombustivelAlcool().getQuantidade())
+            {
+                bombaComMaisCombustivel = bomba1;
+            }
+            else
+                bombaComMaisCombustivel = bomba2;
+
+            return bombaComMaisCombustivel;
+        }
+
+        public BombaDeCombustivel VerificaComMaisDiesel()
+        {
+            BombaDeCombustivel bombaComMaisCombustivel = null;
+            if(bomba1.getCombustivelDiesel().getQuantidade() == bomba2.getCombustivelDiesel().getQuantidade())
+            {
+                bombaComMaisCombustivel = bomba1;
+            }
+
+            if(bomba1.getCombustivelDiesel().getQuantidade() > bomba2.getCombustivelDiesel().getQuantidade())
+            {
+                bombaComMaisCombustivel = bomba1;
+            }
+            else
+                bombaComMaisCombustivel = bomba2;
 
             return bombaComMaisCombustivel;
         }

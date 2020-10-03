@@ -1,6 +1,7 @@
 package Dominio;
 import Dominio.*;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class BombaDeCombustivel
@@ -18,53 +19,89 @@ public class BombaDeCombustivel
             this.combustivelDiesel = combustivelDiesel;
         }
 
-        public double AbastecerPorValor(double valor, String combustivelEscolhido)
+        public String AbastecerPorValor(double valor, int combustivelEscolhido)
         {
-            double litrosAbastecidos = 0;
-            if (combustivelEscolhido == "Gasolina")
+            String resultado = "";
+            var litrosAbastecidos = 0.00;
+            if(valor > 0)
             {
-                litrosAbastecidos = valor / this.combustivelGasolina.getCombustivel().getValorPorLitro();
-            }
 
-            if (combustivelEscolhido == "Alcool")
-            {
-                litrosAbastecidos = valor / this.combustivelAlcool.getCombustivel().getValorPorLitro();
-            }
-            if (combustivelEscolhido == "Diesel")
-            {
-                litrosAbastecidos = valor / this.combustivelDiesel.getCombustivel().getValorPorLitro();
-            }
+                if (combustivelEscolhido == 1)
+                {
+                    if(combustivelGasolina.getQuantidade() >=  valor / this.combustivelGasolina.getCombustivel().getValorPorLitro())
+                    {
+                        litrosAbastecidos =  valor / this.combustivelGasolina.getCombustivel().getValorPorLitro();
+                        this.combustivelGasolina.setQuantidade(combustivelGasolina.getQuantidade() -  litrosAbastecidos);
+                        resultado = String.format("%.2f", litrosAbastecidos);
+                        resultado = "Você abasteceu " + resultado + "litros";
+                    }
+                    else
+                        resultado = "Não há combustível suficiente na bomba, ela possui apenas " + combustivelGasolina.getQuantidade() + " litros";
 
-            return litrosAbastecidos;
+                }
+
+                if (combustivelEscolhido == 2)
+                {
+                    litrosAbastecidos = valor / this.combustivelAlcool.getCombustivel().getValorPorLitro();
+                    this.combustivelAlcool.setQuantidade(litrosAbastecidos);
+                    resultado = String.format("%.2f", litrosAbastecidos);
+                    resultado = "Você abasteceu " + resultado + "litros";
+                }
+                if (combustivelEscolhido == 3)
+                {
+                    litrosAbastecidos = valor / this.combustivelDiesel.getCombustivel().getValorPorLitro();
+                    this.combustivelDiesel.setQuantidade(litrosAbastecidos);
+                    resultado = String.format("%.2f", litrosAbastecidos);
+                    resultado = "Você abasteceu " + resultado + "litros";
+                }
+
+
+
+            }
+            else
+                resultado = "Não é possível abastecer um valor negativo";
+
+           return resultado;
         }
 
-        public double AbastecerPorLitro(double litros, String combustivelEscolhido)
+        public String AbastecerPorLitro(double litros, int combustivelEscolhido)
         {
+            String resultado = "";
             double valorASerPago = 0;
-            if (combustivelEscolhido == "Gasolina")
+            if(litros > 0)
             {
-                 valorASerPago = litros * this.combustivelGasolina.getCombustivel().getValorPorLitro();
-            }
+                if (combustivelEscolhido == 1)
+                {
+                    valorASerPago = litros * this.combustivelGasolina.getCombustivel().getValorPorLitro();
+                    this.combustivelGasolina.setQuantidade(litros);
+                }
 
-            if (combustivelEscolhido == "Alcool")
-            {
-                 valorASerPago = litros * this.combustivelAlcool.getCombustivel().getValorPorLitro();
+                if (combustivelEscolhido == 2)
+                {
+                    valorASerPago = litros * this.combustivelAlcool.getCombustivel().getValorPorLitro();
+                    this.combustivelAlcool.setQuantidade(litros);
+                }
+                if (combustivelEscolhido == 3)
+                {
+                    valorASerPago = litros * this.combustivelDiesel.getCombustivel().getValorPorLitro();
+                    this.combustivelDiesel.setQuantidade(litros);
+                }
+                resultado = String.valueOf(valorASerPago);
             }
-            if (combustivelEscolhido == "Diesel")
-            {
-                 valorASerPago = litros * this.combustivelDiesel.getCombustivel().getValorPorLitro();
-            }
+            else
+                resultado = "Não é possível abastecer uma quantidade de litros negativa";
 
-            return valorASerPago;
+
+            return resultado;
         }
 
         @Override
         public String toString()
         {
             return "BombaDeCombustivel{" +
-                    "combustivelGasolina=" + combustivelGasolina +
-                    ", combustivelAlcool=" + combustivelAlcool +
-                    ", combustivelDiesel=" + combustivelDiesel +
+                    "\ncombustivelGasolina=" + combustivelGasolina +
+                    "\n combustivelAlcool=" + combustivelAlcool +
+                    "\n combustivelDiesel=" + combustivelDiesel +
                     '}';
         }
 
